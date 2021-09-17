@@ -3858,6 +3858,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-table@^7.7.3":
+  version "7.7.3"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-7.7.3.tgz#0e5f952ec8562db1f6c950c766b53f27294a7e89"
+  integrity sha512-IL9DsA+V9AXUSPT6L+fFjo6YfEV40Fb+WmbrVxn+TjsPYUjkMZ0EZP1q0lTiosdrbrq3TeQI35Naxqc0ZTWEQg==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^17.0.0":
   version "17.0.20"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.20.tgz#a4284b184d47975c71658cd69e759b6bd37c3b8c"

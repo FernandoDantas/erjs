@@ -52,4 +52,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Install React Table
 
-### `yarn add react-table`
+### `yarn add react-table` `yarn add -D @types/react-table`
