@@ -45,3 +45,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Install Polished
 
 ### `yarn add polished` 
+
+## Install Material Design Icons
+
+### `yarn add @mdi/react @mdi/js` 
+
+## Install React Table
+
+### `yarn add react-table`
