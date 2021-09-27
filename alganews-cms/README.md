@@ -53,3 +53,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Install React Table
 
 ### `yarn add react-table` `yarn add -D @types/react-table`
+
+## Install ChartJS and React Chart JS
+
+### `yarn add chart.js@2.9.4 react-chartjs-2@2.11.1` `yarn add @types/chart.js@2.9.32`
