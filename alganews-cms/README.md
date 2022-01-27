@@ -74,3 +74,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Install React Confirm Alert
 
 ### `yarn add react-confirm-alert`
+
+## Install Axios
+
+### `yarn add axios`
+
+## Instal UUIDV4
+
+### `yarn add uuidv4`

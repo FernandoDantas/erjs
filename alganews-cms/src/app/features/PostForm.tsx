@@ -9,22 +9,34 @@ import TagInput from "../components/TagInput"
 import WordPriceCounter from "../components/WordPriceCounter"
 import countWordsInMarkdown from '../../core/utils/countWordsInMarkdown';
 import info from '../../core/utils/info';
+import PostService from "../../sdk/services/Post.service"
 
 export default function PostForm () {
   const [tags, setTags] = useState<Tag[]>([])
   const [body, setBody] = useState('')
+  const [title, setTitle] = useState('')
 
-  function handleformSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleformSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    info({
-      title: 'Post Salvo com sucesso',
-      description: 'Você acabou de salvar o post'
-    })
+    const newPost = {
+      body,
+      title,
+      tags: tags.map(tag => tag.text),
+      imageUrl: ''
+    }
+
+    const insertedPost = await PostService.insertNewPost(newPost)      
+      info({
+        title: 'Post salvo com sucesso',
+        description: 'Você acabou de criar o post com o id ' + insertedPost.title
+      })
   }
 
   return <PostFormWrapper onSubmit={handleformSubmit}>
     <Input
       label="título"
+      value={title}
+      onChange={e => setTitle(e.currentTarget.value)}
       placeholder="e.g.: Como fiquei rico aprendendo React"
     />
     <ImageUpload label="Thumbnail do post" />

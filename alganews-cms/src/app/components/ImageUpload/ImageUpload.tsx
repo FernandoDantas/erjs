@@ -1,8 +1,10 @@
 import { mdiUpload } from '@mdi/js'
 import Icon from '@mdi/react'
 import { ChangeEvent, useState } from 'react'
+import FileService from '../../../sdk/services/File.service'
 import Button from '../Button/Button'
 import * as IU from './ImageUpload.styles'
+import { uuid } from 'uuidv4';
 
 export interface ImageUploadProps {
   label: string
@@ -19,6 +21,10 @@ function ImageUpload (props: ImageUploadProps) {
 
       reader.addEventListener('load', e => {
         setFilePreview(String(e.target?.result));
+        const [extension] = file.name.split('.').slice(-1)
+        FileService.getSignedUrl({
+          fileName: `${uuid()}` 
+        })
       })
 
       reader.readAsDataURL(file)
