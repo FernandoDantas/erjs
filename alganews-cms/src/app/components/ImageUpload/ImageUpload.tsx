@@ -4,10 +4,10 @@ import { ChangeEvent, useState } from 'react'
 import FileService from '../../../sdk/services/File.service'
 import Button from '../Button/Button'
 import * as IU from './ImageUpload.styles'
-import { uuid } from 'uuidv4';
 
 export interface ImageUploadProps {
-  label: string
+  label: string;
+  onImageUpload: (imageUrl: string) => any;
 }
 
 function ImageUpload (props: ImageUploadProps) {
@@ -19,12 +19,10 @@ function ImageUpload (props: ImageUploadProps) {
     if (file) {
       const reader = new FileReader()
 
-      reader.addEventListener('load', e => {
+      reader.addEventListener('load', async e => {
         setFilePreview(String(e.target?.result));
-        const [extension] = file.name.split('.').slice(-1)
-        FileService.getSignedUrl({
-          fileName: `${uuid()}` 
-        })
+        const imageUrl = await FileService.upload(file);
+        props.onImageUpload(imageUrl);
       })
 
       reader.readAsDataURL(file)

@@ -1,9 +1,9 @@
-import { uuid } from "uuidv4";
+import { v4 as uuid } from "uuid";
 import { File } from "../@types";
 import Service from "../Service";
 
 class FileService extends Service{
-    private static getSignedUrl (fileInfo: File.UploadRequestInput) {
+      private static getSignedUrl (fileInfo: File.UploadRequestInput) {
         return this.Http
           .post<File.UploadRequest>('/upload-requests', fileInfo)
           .then(this.getData)
