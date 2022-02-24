@@ -79,6 +79,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `yarn add axios`
 
-## Instal UUIDV4
+## Install UUIDV4
 
 ### `yarn add uuidv4`
+
+## Install date-fns
+
+### `yarn add date-fns`

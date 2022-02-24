@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react"
+import MetricService from "../../sdk/services/Metric.service";
 import Chart from "../components/Chart/Chart"
+import { ChartProps } from '../components/Chart/Chart';
+import transformEditorMonthlyEaningsIntoChartJs from '../../core/utils/transformEditorMonthlyEarningsIntoChartJs';
 
-const FAKE_DATA = {
+/* const FAKE_DATA = {
   labels: ['Batata', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
   datasets: [
     {
@@ -22,11 +26,24 @@ const FAKE_DATA = {
       yAxisID: 'cashflow',
     },
   ]
-}
+} */
 
 export default function UserMetrics () {
+  const [editorEarnings, setEditorEarnings] = useState<ChartProps['data']>();
+
+  useEffect(() => {
+    MetricService
+      .getEditorMonthlyEarnings()
+      .then(transformEditorMonthlyEaningsIntoChartJs)
+      .then(setEditorEarnings)
+  }, []);
+
+  if(!editorEarnings){
+    return null;
+  }
+
   return <Chart
     title="Média de performance nos últimos 12 meses"
-    data={FAKE_DATA}
+    data={editorEarnings}
   />
 }

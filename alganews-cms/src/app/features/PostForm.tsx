@@ -17,7 +17,7 @@ export default function PostForm () {
   const [title, setTitle] = useState('');
   const [imageUrl, setImageUrl] = useState(''); 
 
-  async function handleformSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleFormSubmit (e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const newPost = {
       body,
@@ -26,14 +26,15 @@ export default function PostForm () {
       imageUrl,
     }
 
-    const insertedPost = await PostService.insertNewPost(newPost)      
-      info({
-        title: 'Post salvo com sucesso',
-        description: 'Você acabou de criar o post com o id ' + insertedPost.title
-      })
+    const insertedPost = await PostService.insertNewPost(newPost)
+
+    info({
+      title: 'Post salvo com sucesso',
+      description: 'Você acabou de criar o post com o titulo ' + insertedPost.title
+    })
   }
 
-  return <PostFormWrapper onSubmit={handleformSubmit}>
+  return <PostFormWrapper onSubmit={handleFormSubmit}>
     <Input
       label="título"
       value={title}

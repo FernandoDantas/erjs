@@ -5,9 +5,9 @@ import DefaultLayout from "../layouts/Default";
 function EditorProfileView () {
   return <DefaultLayout>
     <ErrorBoundary>
-        <EditorProfile hidePersonalData />
+        <EditorProfile hidePersonalData/>
     </ErrorBoundary>
   </DefaultLayout>
 }
 
-export default EditorProfileView
+export default EditorProfileView;
